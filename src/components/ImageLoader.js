@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Image from './Image';
-import Carousel from 'react-bootstrap/Carousel'
 
 const ImageLoader = () => {
     const [error, setError] = useState(null);

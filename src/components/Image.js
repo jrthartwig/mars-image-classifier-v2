@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 
 const Image = (props) => {
@@ -29,15 +30,19 @@ const Image = (props) => {
     }
 
     return (
-        <div>
-            <img src={imageURL} />
-            <button onClick={GetPredictionHandler}>Get Prediction</button>
-            {
-                prediction &&
-                prediction.map((p, k) => (
-                    <div key={k}>{prediction && p.tagName}</div>
-                ))
-            }
+        <div style={{ display: "flex", flexWrap: 'wrap', justifyContent: 'space-around' }}>
+            <div>
+                <img alt="mars" src={imageURL} style={{ height: "250px" }} />
+                <div style={{ textAlign: 'center' }}>
+                    <Button style={{ margin: "15px", backgroundColor: '#c1440e' }} onClick={GetPredictionHandler} variant="secondary">Get Prediction</Button>
+                    {
+                        prediction &&
+                        prediction.map((p, k) => (
+                            <div style={{ alignItems: 'center', margin: "5px", marginBottom: "15px" }} key={k}>{prediction && p.tagName}</div>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     )
 }

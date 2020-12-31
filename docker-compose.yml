@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+
+  www:
+    container_name: www
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 80:3000
+    command: ["bash", "-c", "npm start"]
+
+  www2:
+    container_name: www2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 8080:3000
