@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 
@@ -7,6 +7,10 @@ const Image = (props) => {
     const { imageURL } = props;
 
     const [prediction, setPrediction] = useState();
+
+    useEffect(() => {
+        fetch('http://localhost:8080/').then((res) => console.log(res));
+    }, [])
 
     const GetPredictionHandler = () => {
         let myHeaders = new Headers();
