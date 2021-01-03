@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 
@@ -7,6 +7,10 @@ const Image = (props) => {
     const { imageURL } = props;
 
     const [prediction, setPrediction] = useState();
+
+    useEffect(() => {
+        fetch('http://localhost:8080/').then((res) => console.log(res));
+    }, [])
 
     const GetPredictionHandler = () => {
         let myHeaders = new Headers();
@@ -22,7 +26,7 @@ const Image = (props) => {
             redirect: 'follow'
         };
 
-        fetch("https://space-cadet-vision.cognitiveservices.azure.com/customvision/v3.0/Prediction/4457824c-3ee2-4619-ae00-edc640fd8dc1/classify/iterations/Iteration6/url", requestOptions)
+        fetch("https://space-cadet-vision.cognitiveservices.azure.com/customvision/v3.0/Prediction/4457824c-3ee2-4619-ae00-edc640fd8dc1/classify/iterations/Iteration8/url", requestOptions)
             .then((response) => response.json())
             .then(result => setPrediction(result.predictions))
             .then(result => console.log(result))
@@ -38,7 +42,7 @@ const Image = (props) => {
                     {
                         prediction &&
                         prediction.map((p, k) => (
-                            <div style={{ alignItems: 'center', margin: "5px", marginBottom: "15px" }} key={k}>{prediction && p.tagName}</div>
+                            <div style={{ alignItems: 'center', margin: "5px", marginBottom: "15px" }} key={k}>{prediction && p.tagName}: {Math.trunc(p.probability * 100)}%</div>
                         ))
                     }
                 </div>
