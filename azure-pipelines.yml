@@ -3,13 +3,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+- master
 
 resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
+  tag: 'latest'
+  dockerRegistryServiceConnection: 'acef2d9b-61b5-4db3-82c1-3ea32c8fda14'
+  imageRepository: 'mars-image-classifier'
+  containerRegistry: 'marsimageclassifier.azurecr.io'
 
 stages:
 - stage: Build
@@ -23,7 +26,9 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
+        command: buildAndPush
+        repository: $(imageRepository)
+        containerRegistry: $(dockerRegistryServiceConnection)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
