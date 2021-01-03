@@ -42,7 +42,7 @@ const Image = (props) => {
                     {
                         prediction &&
                         prediction.map((p, k) => (
-                            <div style={{ alignItems: 'center', margin: "5px", marginBottom: "15px" }} key={k}>{prediction && p.tagName}</div>
+                            <div style={{ alignItems: 'center', margin: "5px", marginBottom: "15px" }} key={k}>{prediction && p.tagName}: {Math.trunc(p.probability * 100)}%</div>
                         ))
                     }
                 </div>
