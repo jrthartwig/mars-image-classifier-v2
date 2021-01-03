@@ -17,17 +17,11 @@ const App = () => {
     <Router>
       <div>
         <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/curiosity">Curiosity Images</Link>
-            </li>
-            <li>
-              <Link to="/upload-image">Upload an Image</Link>
-            </li>
-          </ul>
+          <div>
+            <Link to="/" style={{ padding: '20px', marginTop: '20px' }}>Home</Link>
+            <Link to="/curiosity" style={{ padding: '20px' }}>Curiosity Images</Link>
+            <Link to="/upload-image" style={{ padding: '20px' }}>Upload an Image</Link>
+          </div>
         </nav>
 
         <Switch>
