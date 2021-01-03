@@ -18,7 +18,7 @@ const ImageInput = () => {
             redirect: 'follow'
         }
 
-        fetch("https://space-cadet-vision.cognitiveservices.azure.com/customvision/v3.0/Prediction/4457824c-3ee2-4619-ae00-edc640fd8dc1/classify/iterations/Iteration6/url", requestOptions)
+        fetch("https://space-cadet-vision.cognitiveservices.azure.com/customvision/v3.0/Prediction/4457824c-3ee2-4619-ae00-edc640fd8dc1/classify/iterations/Iteration8/url", requestOptions)
             .then(console.log("here"))
             .then((response) => response.json())
             .then(result => setPrediction(result.predictions))
