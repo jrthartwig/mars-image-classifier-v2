@@ -14,7 +14,7 @@ const Image = (props) => {
 
     const GetPredictionHandler = () => {
         let myHeaders = new Headers();
-        myHeaders.append("Prediction-Key", "d32479c7aa0b4c93ba62c00c97f3b952");
+        myHeaders.append("Prediction-Key", "");
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({ "Url": `${imageURL}` });
